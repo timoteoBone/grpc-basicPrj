@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "github.com/timoteoBone/grpc-basicPrj";
+
+package proto;
+
+message UserData {
+    enum Gender{
+        MALE = 0;
+        WOMAN = 1;
+    }
+    float Weight = 1;
+    float Heigt = 2;
+}
+
+message DietResponse{
+    string Basis = 1;
+    int64 Calories = 2;
+}
+
+service Nutricionist{
+    rpc SendRoutine(UserData) returns (DietResponse);
+}
+
